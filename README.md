@@ -70,6 +70,11 @@ Github, VS Code, Gitbash
 You can also contribute by opening a pull request or submitting an issue
 
 ## Acknowledgements
+[https://sysgears.com/articles/how-to-create-an-apollo-react-express-application/](https://sysgears.com/articles/how-to-create-an-apollo-react-express-application/)
+
+[https://www.apollographql.com/docs/tutorial/schema/](https://www.apollographql.com/docs/tutorial/schema/)
+
+[https://www.apollographql.com/docs/apollo-server/data/resolvers/](https://www.apollographql.com/docs/apollo-server/data/resolvers/)
 
 ## Testing
 List any unit tests you've created for your project here
