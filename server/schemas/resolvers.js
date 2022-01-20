@@ -1,9 +1,9 @@
-const { User } = require('../models');
+const { User } = require('../models/User');
 
 const resolvers = {
     Query: {
         savedBooks: async () => {
-            return savedBooks.find({});
+            return User.find({});
         }
 
         
