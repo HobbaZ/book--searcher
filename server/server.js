@@ -12,7 +12,7 @@ async function startServer() {
   await server.start();
   //Initialize Express
   const app = express();
-  const PORT = process.env.PORT || 3003;
+  const PORT = process.env.PORT || 3005;
 
   server.applyMiddleware({ app });
 
