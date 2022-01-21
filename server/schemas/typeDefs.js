@@ -1,18 +1,27 @@
 const { gql } = require('apollo-server-express');
 
+// ! means is required
+
 const typeDefs = gql`
 
 type User {
-    * ! means is required
     _id: ID,
     username: String!,
     email: String!,
-    password: String!
-},
+    password: String!,
+    savedBooks: [String]
+}
+
+type Auth {
+    token: ID!
+    user: User
+}
+
 type Query {
     savedBooks: [bookSchema]
-    user : [User]
-    book(_id: ID!): bookSchema
+    user(userId: ID!): User
+    book(bookId: ID!): bookSchema
+    me: User
 },
 
 type bookSchema {
