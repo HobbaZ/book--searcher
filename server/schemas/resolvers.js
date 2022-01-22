@@ -4,19 +4,11 @@ const { AuthenticationError } = require('apollo-server-express');
 
 const resolvers = {
     Query: { //query holds all Get APIs, mutation holds create, delete and update
-        //Get user
-        user: async (parent, {userId}) => {
-            return User.findOne({_id: userId});
-        },
-
-        savedBooks: async (parent, {_id}) => {
-            return User.findOne({_id}).populate('savedBooks');
-        },
 
         //Get logged in user by using context
         me: async (parent, args, context) => {
             if (context.user) {
-              return Profile.findOne({ _id: context.user._id });
+              return User.findOne({ _id: context.user._id });
             }
             throw new AuthenticationError('You need to be logged in!');
           },
