@@ -17,8 +17,3 @@ export const QUERY_BOOKS = gql`
     }
   }
 `;
-
-export const SEARCH_GOOGLE_BOOKS = gpl`
-  query searchQuery($search: String) {
- }
-`
