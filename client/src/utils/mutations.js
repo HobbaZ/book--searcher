@@ -43,3 +43,11 @@ export const DELETE_BOOK = gql`
     }
   }
 `;
+
+export const SEARCH_BOOK = gql`
+mutation searchBook($search: String!) {
+    searchBook(search: $search) {
+        searchQuery
+    }
+}
+`

@@ -12,12 +12,13 @@ export const QUERY_ME = gql`
 
 export const QUERY_BOOKS = gql`
   query savedBooks($_id: String) {
-    matchups(_id: $_id) {
+    savedBooks(_id: $_id) {
       _id
-      tech1
-      tech2
-      tech1_votes
-      tech2_votes
     }
   }
 `;
+
+export const SEARCH_GOOGLE_BOOKS = gpl`
+  query searchQuery($search: String) {
+ }
+`

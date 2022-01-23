@@ -3,13 +3,22 @@ import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap
 
 import { getMe, deleteBook } from '../utils/API';
 
+import { useMutation } from '@apollo/client;'
 import { QUERY_ME } from '../utils/queries';
 import { DELETE_BOOK } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 
-const SavedBooks = () => {
+const SavedBooks = ({}) => {
+  const { loading, data } = useQuery(QUERY_ME);
+
+  // Set up our mutation with an option to handle errors
+  const [deleteBook, { error }] = useMutation(DELETE_BOOK);
+
+  // Set data of the logged in user
+  const userData = data?.me || []
+
   const [userData, setUserData] = useState({});
 
   // use this to determine if `useEffect()` hook needs to run again
@@ -49,7 +58,10 @@ const SavedBooks = () => {
     }
 
     try {
-      const response = await deleteBook(bookId, token);
+      //pass in user data object as argument, pass in bookId variable to deleteBook
+      const { data } = await deleteBook({
+        variables: { ...bookId },
+      })
 
       if (!response.ok) {
         throw new Error('something went wrong!');

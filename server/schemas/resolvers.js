@@ -1,5 +1,6 @@
 const { User } = require('../models/User');
 const { signToken } = require('../utils/auth');
+const { getApi } = require('../utils/getApi');
 const { AuthenticationError } = require('apollo-server-express');
 
 const resolvers = {
@@ -11,7 +12,13 @@ const resolvers = {
               return User.findOne({ _id: context.user._id });
             }
             throw new AuthenticationError('You need to be logged in!');
-          },
+        },
+
+        api: () => {
+            return getApi.api()
+        }
+
+        
     },
 
     Mutation: {
@@ -71,6 +78,7 @@ const resolvers = {
         }
         throw new AuthenticationError('Please login to delete a book!');
     },
+
 },
 };
 
