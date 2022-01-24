@@ -3,16 +3,18 @@ const path = require('path');
 const db = require('./config/connection');
 const { ApolloServer } = require('apollo-server-express');
 const { resolvers, typeDefs } = require('./schemas'); //use index file in schemas
+const { authMiddleware } = require('./utils/auth')
 
 async function startServer() {
   const server = new ApolloServer({
       typeDefs,
       resolvers,
+      context: authMiddleware
   });
   await server.start();
   //Initialize Express
   const app = express();
-  const PORT = process.env.PORT || 3021;
+  const PORT = process.env.PORT || 3027;
 
   server.applyMiddleware({ app });
 

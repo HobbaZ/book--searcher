@@ -78,6 +78,8 @@ You can also contribute by opening a pull request or submitting an issue
 
 [https://www.reddit.com/r/graphql/comments/8kwldy/help_querying_data_from_a_3rd_party_api_with/](https://www.reddit.com/r/graphql/comments/8kwldy/help_querying_data_from_a_3rd_party_api_with/)
 
+[https://graphql.org/graphql-js/mutations-and-input-types/](https://graphql.org/graphql-js/mutations-and-input-types/)
+
 ## Testing
 List any unit tests you've created for your project here
 

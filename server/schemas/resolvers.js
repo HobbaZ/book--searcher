@@ -1,6 +1,5 @@
 const { User } = require('../models/User');
 const { signToken } = require('../utils/auth');
-const { getApi } = require('../utils/getApi');
 const { AuthenticationError } = require('apollo-server-express');
 
 const resolvers = {
@@ -27,13 +26,13 @@ const resolvers = {
             const user = await User.findOne({ email });
       
             if (!user) {
-              throw new AuthenticationError('Incorrect email and/or password entered!');
+              throw new AuthenticationError('Email or password incorrectly entered!');
             }
       
             const correctPw = await user.isCorrectPassword(password);
       
             if (!correctPw) {
-              throw new AuthenticationError('Incorrect email and/or password entered!');
+              throw new AuthenticationError('Email or password incorrectly entered!');
             }
       
             const token = signToken(user);
@@ -41,12 +40,12 @@ const resolvers = {
           },
 
           //Save book if user logged in
-        saveBook: async (parent, {userId, bookId}, context) => {
+        saveBook: async (parent, args, context) => {
             if (context.user) {
             return User.findOneAndUpdate(
-                {_id: userId},
-                {$push: { savedBooks: bookId}},
-                { new: true, runValidators: true})
+                {_id: context.User._id},
+                {$push: { savedBooks: args}},
+                { new: true})
                 .then (result => {
                     return{...result}
                 })
@@ -62,8 +61,8 @@ const resolvers = {
             if (context.user) {
             return User.findOneAndUpdate(
                 { _id: context.user._id},
-                {$pull: { savedBooks: bookId}},
-                { new: true, runValidators: true})
+                {$pull: { savedBooks: {bookId}}},
+                { new: true})
                 .then (result => {
                     return{...result}
                 })
