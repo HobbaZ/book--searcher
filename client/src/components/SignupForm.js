@@ -46,13 +46,13 @@ const SignupForm = () => {
       console.error(e);
       setShowAlert(true);
     }
-  };
-
-    /*setUserFormData({
+    setUserFormData({
       username: '',
       email: '',
       password: '',
-    });*/
+    });
+
+  };
 
   return (
     <>

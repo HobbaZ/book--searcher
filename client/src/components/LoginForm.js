@@ -46,10 +46,10 @@ const LoginForm = (props) => {
       setShowAlert(true);
     }
 
-    /*setUserFormData({
+    setUserFormData({
       email: '',
       password: '',
-    });*/
+    });
   };
 
   return (
