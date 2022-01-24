@@ -48,11 +48,11 @@ const SignupForm = () => {
     }
   };
 
-    setUserFormData({
+    /*setUserFormData({
       username: '',
       email: '',
       password: '',
-    });
+    });*/
 
   return (
     <>
