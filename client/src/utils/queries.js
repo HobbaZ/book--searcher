@@ -9,11 +9,3 @@ export const QUERY_ME = gql`
     }
   }
 `;
-
-export const QUERY_BOOKS = gql`
-  query savedBooks($_id: String) {
-    savedBooks(_id: $_id) {
-      _id
-    }
-  }
-`;
