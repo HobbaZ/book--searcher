@@ -8,11 +8,11 @@ import {LOGIN_USER} from '../utils/mutations';
 import { loginUser } from '../utils/API';
 import Auth from '../utils/auth';
 
-const LoginForm = () => {
+const LoginForm = (props) => {
 
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated] = useState(false);
-  const [ login ] = useMutation(LOGIN_USER)
+  const [ login, { error, data }] = useMutation(LOGIN_USER)
   const [showAlert, setShowAlert] = useState(false);
 
   const handleInputChange = (event) => {
