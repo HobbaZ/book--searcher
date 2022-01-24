@@ -8,7 +8,7 @@ import {LOGIN_USER} from '../utils/mutations';
 import { loginUser } from '../utils/API';
 import Auth from '../utils/auth';
 
-const LoginForm = (props) => {
+const LoginForm = () => {
 
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated] = useState(false);
@@ -40,13 +40,13 @@ const LoginForm = (props) => {
       });
 
       Auth.login(data.login.token);
+
     } catch (e) {
       console.error(e);
       setShowAlert(true);
     }
 
     setUserFormData({
-      username: '',
       email: '',
       password: '',
     });
@@ -58,6 +58,7 @@ const LoginForm = (props) => {
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your login credentials!
         </Alert>
+
         <Form.Group>
           <Form.Label htmlFor='email'>Email</Form.Label>
           <Form.Control
