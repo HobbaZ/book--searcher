@@ -8,8 +8,7 @@ const resolvers = {
         //Get logged in user by using context
         me: async (parent, args, context) => {
             if (context.user) {
-              const user = await User.findOne({ _id: context.user._id });
-              return { user };
+              return User.findOne({ _id: context.user._id });
             }
             throw new AuthenticationError('You need to be logged in!');
         },
@@ -58,16 +57,12 @@ const resolvers = {
 
         deleteBook: async (parent, {bookId}, context) => {
             if (context.user) {
-            return await User.findOneAndUpdate(
+            const user = await User.findOneAndUpdate(
                 { _id: context.user._id},
                 {$pull: { savedBooks: {bookId: bookId}}},
-                { new: true})
-                .then (result => {
-                    return{result}
-                })
-                .catch (err => {
-                    console.error(err)
-                })
+                { new: true});
+                return user;
+                
         }
         throw new AuthenticationError('Please login to delete a book!');
     },
