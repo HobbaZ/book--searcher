@@ -9,7 +9,13 @@ const resolvers = {
         me: async (parent, args, context) => {
             if (context.user) {
               const user = await User.findOne({ _id: context.user._id });
-              return { user };
+              return { user }
+              .then (result => {
+                return{result}
+            })
+            .catch (err => {
+                console.error("ERROR:", code, err)
+            })
             }
             throw new AuthenticationError('You need to be logged in!');
         },
@@ -20,7 +26,13 @@ const resolvers = {
         createUser: async (parent, {username, email, password}) => {
             const user = await User.create({username, email, password})
             const token = signToken(user);
-            return { token, user};
+            return { token, user}
+            .then (result => {
+                return{result}
+            })
+            .catch (err => {
+                console.error("ERROR:", code, err)
+            })
         },
         
         login: async (parent, { email, password }) => {
