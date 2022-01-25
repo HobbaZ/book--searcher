@@ -9,7 +9,7 @@ async function startServer() {
   const server = new ApolloServer({
       typeDefs,
       resolvers,
-      context: authMiddleware,
+      context: authMiddleware
   });
   await server.start();
   //Initialize Express
