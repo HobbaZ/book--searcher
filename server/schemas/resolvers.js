@@ -8,7 +8,8 @@ const resolvers = {
         //Get logged in user by using context
         me: async (parent, args, context) => {
             if (context.user) {
-              return User.findOne({ _id: context.user._id });
+              const userData = await User.findOne({ _id: context.user._id });
+              return userData;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
@@ -42,12 +43,14 @@ const resolvers = {
           //Save book if user logged in
         saveBook: async (parent, args, context) => {
             if (context.user) {
-            return User.findOneAndUpdate(
+            const updatedUser = await User.findOneAndUpdate(
                 {_id: context.User._id},
                 {$push: { savedBooks: args}},
-                { new: true})
+                { new: true});
+                return updatedUser
                 .then (result => {
                     return{...result}
+                    
                 })
                 .catch (err => {
                     console.error(err)
@@ -59,10 +62,11 @@ const resolvers = {
         //delete book from user profile only if user logged in
         deleteBook: async (parent, {bookId}, context) => {
             if (context.user) {
-            return User.findOneAndUpdate(
+            const updatedUser = await User.findOneAndUpdate(
                 { _id: context.user._id},
                 {$pull: { savedBooks: {bookId}}},
-                { new: true})
+                { new: true});
+                return updatedUser
                 .then (result => {
                     return{...result}
                 })
