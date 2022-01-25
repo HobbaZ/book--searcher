@@ -25,7 +25,7 @@ const SavedBooks = () => {
 
     try {
       //pass in user data object as argument, pass in bookId variable to deleteBook
-      const { data } = await deleteBook({
+      await deleteBook({
         variables: { bookId: bookId },
       })
 

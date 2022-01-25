@@ -1,5 +1,5 @@
 // use this to decode a token and get the user's information out of it
-const { decode } = require ('jwt-decode');
+import decode from 'jwt-decode';
 
 // create a new class to instantiate for a user
 class AuthService {
@@ -19,6 +19,7 @@ class AuthService {
   isTokenExpired(token) {
     try {
       const decoded = decode(token);
+      console.log(decoded);
       if (decoded.exp < Date.now() / 1000) {
         localStorage.removeItem('id_token');
         return true;
@@ -31,6 +32,7 @@ class AuthService {
   getToken() {
     // Retrieves the user token from localStorage
     return localStorage.getItem('id_token');
+    
   }
 
   login(idToken) {
