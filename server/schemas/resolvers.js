@@ -43,12 +43,12 @@ const resolvers = {
           //Save book if user logged in
         saveBook: async (parent, args, context) => {
             if (context.user) {
-            return User.findOneAndUpdate(
+            return await User.findOneAndUpdate(
                 {_id: context.User._id},
                 {$push: { savedBooks: args}},
                 { new: true})
                 .then (result => {
-                    return{...result}
+                    return{result}
                 })
                 .catch (err => {
                     console.error(err)
@@ -60,12 +60,12 @@ const resolvers = {
         //delete book from user profile only if user logged in
         deleteBook: async (parent, {bookId}, context) => {
             if (context.user) {
-            return User.findOneAndUpdate(
+            return await User.findOneAndUpdate(
                 { _id: context.user._id},
                 {$pull: { savedBooks: {bookId: bookId}}},
                 { new: true})
                 .then (result => {
-                    return{...result}
+                    return{result}
                 })
                 .catch (err => {
                     console.error(err)
