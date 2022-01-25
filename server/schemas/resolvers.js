@@ -69,7 +69,6 @@ const resolvers = {
         throw new AuthenticationError('Please login to add a book!');
     },
 
-        //delete book from user profile only if user logged in
         deleteBook: async (parent, {bookId}, context) => {
             if (context.user) {
             return await User.findOneAndUpdate(
