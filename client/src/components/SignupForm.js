@@ -43,7 +43,7 @@ const SignupForm = () => {
 
       Auth.login(data.createUser.token);
     } catch (e) {
-      console.error(e);
+      console.error('Error:', e);
       setShowAlert(true);
     }
     setUserFormData({
