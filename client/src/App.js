@@ -7,6 +7,12 @@ import Navbar from './components/Navbar';
 
 const client = new ApolloClient({
   uri: '/graphql',
+  headers: {
+    'Content-Type': 'application/json',
+    "Clear-Site-Data": "*",
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': false,
+  },
   cache: new InMemoryCache(),
 });
 
