@@ -10,15 +10,20 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/HobbaZ/book-searcher)
 
 ## Description
+ 
 ### Project Aim ###
+Refactor an existing Google Book search site from a RESTful api to an Apollo GrapghQL api
 
 ### What Problem Does It Solve ###
+Modernises api query approach with GraphQL's mutations, schemas and queries structure
 
 ### What I Learnt ###
+How to create get routes (queries) and create, delete, update routes (mutations) with GraphQL.
 
+To not change the server and proxy ports unless I want to cause hard to trace errors.
 
 ## Deployment
-You can view the [website link](https://github.com/HobbaZ/book-searcher) here. 
+You can view the [website link](https://book-searcher-hobbaz.herokuapp.com/) running on Heroku here. 
 
 
 ## Table of Contents
@@ -42,6 +47,14 @@ SO THAT I can keep a list of books to purchase
 ```
 
 ## Screenshots
+Searching for a book by title or author
+![](./Assets/21-mern-homework-demo-01.gif)
+
+Adding books to your saved books list
+![](./Assets/21-mern-homework-demo-02.gif)
+
+Viewing your saved books
+![](./Assets/21-mern-homework-demo-03.gif)
 
 ## Installation
 1. Clone the repo to your computer by clicking the green code button and copying the SSH version.
@@ -52,14 +65,17 @@ SO THAT I can keep a list of books to purchase
 
 4. Open a new Terminal in VS Code and type ```npm install``` to install the repo dependencies.
 
-5. Finally, type ```npm start``` into the terminal and navigate to localhost:3008 in your web browser.
+5. Finally, type ```npm run develop``` into the terminal and navigate to localhost:3001 in your web browser.
 
 ## Features
+- Implements GraphQL api, replacing existing RESTful api
+- Save books to a book list
 
 ## Technology
 - React
 - Heroku
-- Apollo
+- GraphQL
+- MongoDB Atlas
 
 ## Contributors
 [Zachary Hobba](https://github.com/HobbaZ)
@@ -78,7 +94,7 @@ You can also contribute by opening a pull request or submitting an issue
 [https://graphql.org/graphql-js/mutations-and-input-types/](https://graphql.org/graphql-js/mutations-and-input-types/)
 
 ## Testing
-List any unit tests you've created for your project here
+No tests have been created
 
 ## License
 
