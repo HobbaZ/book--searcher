@@ -44,18 +44,15 @@ SO THAT I can keep a list of books to purchase
 ## Screenshots
 
 ## Installation
-You will need: 
-Github, VS Code, Gitbash
+1. Clone the repo to your computer by clicking the green code button and copying the SSH version.
 
-1. Click Use this Template
-2. Enter a name for your repo
-3. Git clone new repo to your computer by right clicking SSH link in your repo, then open gitbash and type:
+2. Open Gitbash in your desired folder and type ```git clone ``` then right click to paste the string and hit enter. The repo will then be cloned to your computer.
 
-    'git clone' 
-    
-    Then right click next to git clone text and your SSh link will be pasted in for you, hit enter and wait as it compiles
+3. Navigate to the repo folder and type ```code .``` into gitbash to open the repo in VS Code.
 
-4. Open the repo in your editor software and edit the README to your values
+4. Open a new Terminal in VS Code and type ```npm install``` to install the repo dependencies.
+
+5. Finally, type ```npm start``` into the terminal and navigate to localhost:3008 in your web browser.
 
 ## Features
 
